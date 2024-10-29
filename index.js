@@ -31,8 +31,11 @@ app.get("/restaurant", (request, response) => {
   const restaurantId = request.query.restaurantId;
   console.log(`restaurantId: ${restaurantId}`);
 
+  const randomCuisine = selectRandomCuisine();
+  console.log(`Random Cuisine: ${randomCuisine}`);
+
   //Display page
-  response.render("restaurantmenu", { restaurantId });
+  response.render("restaurantmenu", { restaurantId, randomCuisine });
 });
 
 //Add any other required routes here
