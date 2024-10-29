@@ -1,37 +1,74 @@
 /* Base styling, feel free to remove or alter */
 
 body {
-    background: linear-gradient(90deg, rgba(93,142,251,1) 0%, rgba(93,142,251,1) 50%, rgba(0,212,255,1) 100%);
-    height: 100%;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Lato', sans-serif;
-    display: flex;
-    color: #F6F6F6;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 142, 251, 1) 0%,
+    rgba(93, 142, 251, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Lato", sans-serif;
+  display: flex;
+  color: #f6f6f6;
 }
 
 .main-content {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  align-items: center;
+  flex-direction: column;
 }
 
 .main-content h1 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .main-content form {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .main-content form button {
-    border: none;
-    background: #F6F6F6;
-    mix-blend-mode: screen;
-    padding: 5px;
-    border-radius: 5px;
-    margin-left: 5px;
-    cursor: pointer;
+  border: none;
+  background: #f6f6f6;
+  mix-blend-mode: screen;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.navBar {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+}
+
+.navBar ul {
+  display: flex;
+}
+
+.navBar li {
+  padding: 15px;
+  list-style: none;
+}
+
+.navBar a {
+  color: #5d8efb;
+  text-decoration: none;
+}
+
+.navBar a:visited {
+  color: #5d8efb;
+}
+
+.navBar a:hover {
+  color: rgb(52, 54, 58);
+  transition: 0.7s;
 }
