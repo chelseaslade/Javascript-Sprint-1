@@ -9,6 +9,7 @@ const {
 
 const app = express();
 let restaurantData = {}; //This should be populated soon
+let selectCuisine = "";
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -34,17 +35,28 @@ app.get("/restaurant", (request, response) => {
   const randomCuisine = selectRandomCuisine();
   console.log(`Random Cuisine: ${randomCuisine}`);
 
+  const randomMenu = generateMenu(randomCuisine);
+
   //Display page
-  response.render("restaurantmenu", { restaurantId, randomCuisine });
+  response.render("restaurantmenu", {
+    restaurantId,
+    randomCuisine,
+    randomMenu,
+  });
 });
 
 //Add any other required routes here
 //Menu Alerts
 app.get("/menualerts", (request, response) => {
-  response.render("menualerts");
+  const randomItem = generateRandomMenuItem("italian");
+  console.log(`Random Menu Item: ${randomItem}`);
+
+  //Display page
+  response.render("menualerts", { randomItem });
 });
 
 app.get("/restaurantmenu", (request, response) => {
+  //Display Page
   response.render("restaurantmenu");
 });
 

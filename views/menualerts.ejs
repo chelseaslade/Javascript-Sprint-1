@@ -9,6 +9,17 @@
 <body>
     <main class="main-content">
         <%- include('partials/nav') %>
+            <h3>Featured Item</h3>
+            <p>Name: <%= randomItem.name %>
+            </p>
+            <p>Description: <%= randomItem.description %>
+            </p>
+            <p>Price: <%= randomItem.price %>
+            </p>
+            <p>
+                <%= randomItem.special ? "Special item" : "Regular Item" %>
+            </p>
+
     </main>
 </body>
 

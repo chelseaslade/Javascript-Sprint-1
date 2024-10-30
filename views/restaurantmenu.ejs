@@ -15,7 +15,20 @@
                 <h4>Restaurant Name: </h4>
                 <%= restaurantId %>
                     <h4>Menu Items: </h4>
-
+                    <!-- <div class="menuDisplay"> -->
+                    <ul>
+                        <% randomMenu.forEach((item)=> { %>
+                            <li>
+                                <p>Name: <%= item.name %>
+                                </p>
+                                <p>Price: <%= item.price %>
+                                </p>
+                                <p>Description: <%= item.description %>
+                                </p>
+                            </li>
+                            <% }); %>
+                    </ul>
+                    <!-- </div> -->
     </main>
 </body>
 
