@@ -1,12 +1,7 @@
 /* Base styling, feel free to remove or alter */
 
 body {
-  background: linear-gradient(
-    90deg,
-    rgba(93, 142, 251, 1) 0%,
-    rgba(93, 142, 251, 1) 50%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background-color: cornflowerblue;
   height: 100vh;
   padding: 0px;
   margin: 0px;
@@ -25,6 +20,11 @@ body {
 
 .main-content h1 {
   font-size: 50px;
+}
+
+.main-content h4 {
+  padding: 0px;
+  margin: 15px;
 }
 
 .main-content form {
@@ -78,4 +78,8 @@ body {
   min-height: 80vh;
   width: 100%;
   flex-direction: column;
+}
+
+.menuDisplay li {
+  padding: 10px;
 }
