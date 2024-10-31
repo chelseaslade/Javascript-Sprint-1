@@ -31,6 +31,24 @@
                                 </li>
                                 <% }); %>
                         </ul>
+                        <% if (specials.length>0) { %>
+                            <h4>Daily Specials</h4>
+                            <ul>
+                                <% specials.forEach((special)=> { %>
+                                    <li>
+                                        <p>
+                                            Item Name: <%= special.name %>
+                                        </p>
+                                        <p> Item Price:
+                                            <%= special.price %>
+                                        </p>
+                                        <p> Item Description:
+                                            <%= special.description %>
+                                        </p>
+                                    </li>
+                                    <% }); %>
+                            </ul>
+                            <% } %>
                     </div>
     </main>
 </body>

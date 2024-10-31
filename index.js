@@ -60,10 +60,14 @@ app.get("/restaurant", (request, response) => {
 
   //Display page if restaurant found
   if (restaurant) {
+    //Filter for specials
+    const specials = restaurant.menu.filter((item) => item.special);
+
     response.render("restaurantmenu", {
       restaurantId: restaurant.name,
       randomCuisine: restaurant.cuisine,
       randomMenu: restaurant.menu,
+      specials,
     });
   } else {
     //Error if restaurant not found
