@@ -83,3 +83,7 @@ body {
 .menuDisplay li {
   padding: 10px;
 }
+
+.featuredItem {
+  margin: 5px;
+}

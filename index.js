@@ -10,7 +10,7 @@ const {
 const app = express();
 let restaurantData = [];
 
-//Generate random menu for each restaurant automatically
+//Generate random menu for each restaurant automatically and store in restaurantData array
 Restaurants.forEach((restaurant) => {
   const randomCuisine = selectRandomCuisine();
   const restaurantMenu = generateMenu(randomCuisine);
@@ -31,7 +31,20 @@ app.use(express.static("public"));
  * Renders the homepage that lists cities and restaurant names.
  */
 app.get("/", (request, response) => {
-  response.render("index", { restaurants: Restaurants });
+  //Random restaurant from restaurantData list
+  const randomRestaurant =
+    restaurantData[Math.floor(Math.random() * restaurantData.length)];
+
+  //Chooses a random cuisine from the list generated for the restaurant menus
+  const randomCuisine = randomRestaurant.cuisine;
+
+  const randomItem = generateRandomMenuItem(randomCuisine);
+
+  response.render("index", {
+    restaurants: Restaurants,
+    randomItem,
+    randomCuisine,
+  });
 });
 
 /**
@@ -45,7 +58,7 @@ app.get("/restaurant", (request, response) => {
 
   const restaurant = restaurantData.find((r) => r.id === restaurantId);
 
-  //Display page
+  //Display page if restaurant found
   if (restaurant) {
     response.render("restaurantmenu", {
       restaurantId: restaurant.name,
@@ -53,6 +66,7 @@ app.get("/restaurant", (request, response) => {
       randomMenu: restaurant.menu,
     });
   } else {
+    //Error if restaurant not found
     response.status(404).send("Restaurant not found");
   }
 });
@@ -60,11 +74,8 @@ app.get("/restaurant", (request, response) => {
 //Add any other required routes here
 //Menu Alerts
 app.get("/menualerts", (request, response) => {
-  const randomItem = generateRandomMenuItem("italian");
-  console.log(`Random Menu Item: ${randomItem.name}`);
-
   //Display page
-  response.render("menualerts", { randomItem });
+  response.render("menualerts", { Restaurants });
 });
 
 app.get("/restaurantmenu", (request, response) => {

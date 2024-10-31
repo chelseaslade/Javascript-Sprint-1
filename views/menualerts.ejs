@@ -9,17 +9,12 @@
 <body>
     <main class="main-content">
         <%- include('partials/nav') %>
-            <h3>Featured Item</h3>
-            <p>Name: <%= randomItem.name %>
-            </p>
-            <p>Description: <%= randomItem.description %>
-            </p>
-            <p>Price: <%= randomItem.price %>
-            </p>
-            <p>
-                <%= randomItem.special ? "Special item" : "Regular Item" %>
-            </p>
-
+            <h3>Featured Items</h3>
+            <% Restaurants.forEach((restaurant)=> { %>
+                <h4>
+                    <%= restaurant.name %>
+                </h4>
+                <% }); %>
     </main>
 </body>
 
