@@ -7,11 +7,11 @@ const {
 
 describe("Restaurant Functions", () => {
   describe("generateRandomMenuItem", () => {
-    // Test implementations go here
+    test("Expect function to return dish from specified cuisine", () => {});
   });
 
   describe("generateMenu", () => {
-    // Test implementations go here
+    test("Returns between 5 and 10 menu items", () => {});
   });
 
   describe("selectRandomCuisine", () => {

@@ -15,7 +15,7 @@
                 <label for="restaurantId">Select a restaurant:</label>
                 <select name="restaurantId" id="restaurantId">
                     <% restaurants.forEach((restaurant)=> { %>
-                        <option value="<%= restaurant.name %>">
+                        <option value="<%= restaurant.id %>">
                             <%= restaurant.name %>
                         </option>
                         <% }) %>

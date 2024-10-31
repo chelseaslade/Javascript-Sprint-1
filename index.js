@@ -8,7 +8,19 @@ const {
 } = require("./utils/restaurantUtils");
 
 const app = express();
-let restaurantData = {}; //This should be populated soon
+let restaurantData = [];
+
+//Generate random menu for each restaurant automatically
+Restaurants.forEach((restaurant) => {
+  const randomCuisine = selectRandomCuisine();
+  const restaurantMenu = generateMenu(randomCuisine);
+  restaurantData.push({
+    id: restaurant.id,
+    name: restaurant.name,
+    cuisine: randomCuisine,
+    menu: restaurantMenu,
+  });
+});
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -31,17 +43,18 @@ app.get("/restaurant", (request, response) => {
   const restaurantId = request.query.restaurantId;
   console.log(`restaurantId: ${restaurantId}`);
 
-  const randomCuisine = selectRandomCuisine();
-  console.log(`Random Cuisine: ${randomCuisine}`);
-
-  const randomMenu = generateMenu(randomCuisine);
+  const restaurant = restaurantData.find((r) => r.id === restaurantId);
 
   //Display page
-  response.render("restaurantmenu", {
-    restaurantId,
-    randomCuisine,
-    randomMenu,
-  });
+  if (restaurant) {
+    response.render("restaurantmenu", {
+      restaurantId: restaurant.name,
+      randomCuisine: restaurant.cuisine,
+      randomMenu: restaurant.menu,
+    });
+  } else {
+    response.status(404).send("Restaurant not found");
+  }
 });
 
 //Add any other required routes here
