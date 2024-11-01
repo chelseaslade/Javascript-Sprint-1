@@ -30,6 +30,32 @@ describe("Restaurant Functions", () => {
       expect(result.length).toBeGreaterThanOrEqual(5);
       expect(result.length).toBeLessThanOrEqual(10);
     });
+    test("Each menu item should have valid properties", () => {
+      const result = generateMenu(selectRandomCuisine());
+
+      result.forEach((item) => {
+        //Check for name
+        expect(item).toHaveProperty("name");
+        expect(typeof item.name).toBe("string");
+        expect(item.name.length).toBeGreaterThan(0);
+
+        //Check for description
+        expect(item).toHaveProperty("description");
+        expect(typeof item.description).toBe("string");
+        expect(item.description.length).toBeGreaterThan(0);
+
+        //Check for price
+        expect(item).toHaveProperty("price");
+        expect(typeof item.price).toBe("string");
+
+        // Check if price can be parsed to a float
+        expect(!isNaN(parseFloat(item.price))).toBe(true);
+
+        //Check for special property
+        expect(item).toHaveProperty("special");
+        expect(typeof item.special).toBe("boolean");
+      });
+    });
   });
 
   //Tests for Random Cuisine Function
