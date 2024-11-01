@@ -1,9 +1,8 @@
 /* Base styling, feel free to remove or alter */
 
 body {
-  background-color: cornflowerblue;
+  background-color: rgb(109, 130, 167);
   height: 100vh;
-  /* padding: 0px; */
   margin: 0px;
   font-family: "Lato", sans-serif;
   color: #f6f6f6;
@@ -57,12 +56,12 @@ body {
 }
 
 .navBar a {
-  color: #5d8efb;
+  color: #152b5c;
   text-decoration: none;
 }
 
 .navBar a:visited {
-  color: #5d8efb;
+  color: steelblue;
 }
 
 .navBar a:hover {
@@ -127,5 +126,5 @@ body {
   font-size: small;
   padding: 20px;
   list-style: none;
-  color: #5d8efb;
+  color: steelblue;
 }
