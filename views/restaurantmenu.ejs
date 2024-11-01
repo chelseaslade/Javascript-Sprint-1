@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+
+<body>
+    <main class="main-content">
+        <%- include('partials/nav') %>
+            <h3>Restaurant Menu</h3>
+
+            <h4>Cuisine Type: </h4>
+            <%= randomCuisine %>
+
+                <h4>Restaurant Name: </h4>
+                <%= restaurantId %>
+
+                    <div class="menuDisplay">
+                        <ul>
+                            <h4>Menu Items </h4>
+                            <% randomMenu.forEach((item)=> { %>
+                                <li>
+                                    <p>Item Name: <%= item.name %>
+                                    </p>
+                                    <p>Item Price: <%= item.price %>
+                                    </p>
+                                    <p>Item Description: <%= item.description %>
+                                    </p>
+                                </li>
+                                <% }); %>
+                        </ul>
+
+                        <% if (specials.length>0) { %>
+                            <ul>
+                                <h4>Daily Specials</h4>
+
+                                <% specials.forEach((special)=> { %>
+                                    <li>
+                                        <p>
+                                            Item Name: <%= special.name %>
+                                        </p>
+                                        <p> Item Price:
+                                            <%= special.price %>
+                                        </p>
+                                        <p> Item Description:
+                                            <%= special.description %>
+                                        </p>
+                                    </li>
+                                    <% }); %>
+                            </ul>
+                            <% } %>
+                    </div>
+                    <%- include('partials/footer') %>
+    </main>
+</body>
+
+</html>
