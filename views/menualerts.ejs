@@ -16,22 +16,28 @@
                         <%= restaurant.name %>
                     </h4>
                     <% if (restaurant.specials.length> 0) { %>
-                        <% restaurant.specials.forEach((special)=> { %>
+                        <ul>
+                            <% restaurant.specials.forEach((special)=> { %>
+
+                                <li>
+                                    <p>
+                                        <%= special.name %> - $<%= special.price %>
+                                    </p>
+                                </li>
+
+                                <% }) %>
+                        </ul>
+
+                        <% } else { %>
                             <ul>
                                 <li>
-                                    <%= special.name %> - $<%= special.price %>
+                                    <p>No specials currently!</p>
+                                    <% } %>
                                 </li>
                             </ul>
-                            <% }) %>
-                                <% } else { %>
-                                    <ul>
-                                        <li>
-                                            <p>No specials currently!</p>
-                                            <% } %>
-                                        </li>
-                                    </ul>
-                                    <% }); %>
+                            <% }); %>
             </div>
+            <%- include('partials/footer') %>
     </main>
 </body>
 

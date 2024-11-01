@@ -3,7 +3,7 @@
 body {
   background-color: cornflowerblue;
   height: 100vh;
-  padding: 0px;
+  /* padding: 0px; */
   margin: 0px;
   font-family: "Lato", sans-serif;
   color: #f6f6f6;
@@ -88,8 +88,44 @@ body {
 /* Menu Alerts Page */
 
 .specialsMenu {
+  min-height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.specialsMenu ul {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  align-items: center;
+  padding: 10px;
 }
 
 .specialsMenu li {
   list-style: none;
+}
+
+/* Footer */
+
+.footer {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+  margin-top: 80px;
+}
+
+.footer ul {
+  display: flex;
+}
+
+.footer li {
+  font-size: small;
+  padding: 20px;
+  list-style: none;
+  color: #5d8efb;
 }
