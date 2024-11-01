@@ -34,9 +34,16 @@ function generateMenu(cuisine) {
   const randomMenu = []; //Initialize array
   const menuLength = Math.floor(Math.random() * (10 - 5) + 5); //Set number of menu items between 5-10 randomly
 
-  for (let i = 0; i < menuLength; i++) {
+  while (randomMenu.length < menuLength) {
     const menuItem = generateRandomMenuItem(cuisine); //Generate items based on cuisine
-    randomMenu.push(menuItem); //Add to menu array
+
+    //Check if duplicate
+    const itemExists = randomMenu.some((item) => item.name === menuItem.name);
+
+    //Add to array if not duplicate
+    if (!itemExists) {
+      randomMenu.push(menuItem);
+    }
   }
 
   return randomMenu;
