@@ -10,11 +10,24 @@
     <main class="main-content">
         <%- include('partials/nav') %>
             <h3>Featured Items</h3>
-            <% Restaurants.forEach((restaurant)=> { %>
+            <% specialData.forEach((restaurant)=> { %>
                 <h4>
                     <%= restaurant.name %>
                 </h4>
-                <% }); %>
+                <% if (restaurant.specials.length> 0) { %>
+
+                    <% restaurant.specials.forEach((special)=> { %>
+                        <ul>
+                            <li>
+                                <%= special.name %> - $<%= special.price %>
+                            </li>
+                        </ul>
+                        <% }) %>
+
+                            <% } else { %>
+                                <p>No specials currently!</p>
+                                <% } %>
+                                    <% }); %>
     </main>
 </body>
 

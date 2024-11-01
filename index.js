@@ -82,8 +82,17 @@ app.get("/restaurant", (request, response) => {
 //Add any other required routes here
 //Menu Alerts
 app.get("/menualerts", (request, response) => {
+  //Get specials data
+  const specialData = restaurantData.map((restaurant) => {
+    const specials = restaurant.menu.filter((item) => item.special);
+    return {
+      name: restaurant.name,
+      specials,
+    };
+  });
+
   //Display page
-  response.render("menualerts", { Restaurants });
+  response.render("menualerts", { Restaurants, specialData });
 });
 
 app.get("/restaurantmenu", (request, response) => {
