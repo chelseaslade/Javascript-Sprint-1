@@ -38,12 +38,16 @@ app.get("/", (request, response) => {
   //Chooses a random cuisine from the list generated for the restaurant menus
   const randomCuisine = randomRestaurant.cuisine;
 
+  //Corresponding restaurant name
+  const restaurantName = randomRestaurant.name;
+
   const randomItem = generateRandomMenuItem(randomCuisine);
 
   response.render("index", {
     restaurants: Restaurants,
     randomItem,
     randomCuisine,
+    restaurantName,
   });
 });
 

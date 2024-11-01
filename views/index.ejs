@@ -25,17 +25,18 @@
 
             <div class="featuredItem">
                 <h3>Featured Menu Item </h3>
-                <p> Item Name: <%= randomItem.name %>
-                </p>
-                <p> Cuisine Type: <%= randomCuisine %>
-                </p>
-                <p> Price: <%= randomItem.price %>
-                </p>
-                <p> Description: <%= randomItem.description %>
-                </p>
-                <% if (randomItem.special) { %>
-                    <p>Item on special!</p>
-                    <% } %>
+                <p>Restaurant: <%= restaurantName %>
+                        <p> Item Name: <%= randomItem.name %>
+                        </p>
+                        <p> Cuisine Type: <%= randomCuisine %>
+                        </p>
+                        <p> Price: <%= randomItem.price %>
+                        </p>
+                        <p> Description: <%= randomItem.description %>
+                        </p>
+                        <% if (randomItem.special) { %>
+                            <p>Item on special!</p>
+                            <% } %>
             </div>
 
     </main>
